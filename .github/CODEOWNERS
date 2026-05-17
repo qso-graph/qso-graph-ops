@@ -1,0 +1,30 @@
+# CODEOWNERS — qso-graph/qso-graph-ops
+#
+# GitHub-layer review: @KI7MT (the only GitHub identity in this team).
+#
+# PCS-layer review requirements (see ionis-devel/profiles/agents/*.yaml
+# and ionis-devel/planning/OWNERSHIP-MATRIX.md):
+#
+# This is a public-facing ops repo for the qso-graph MCP fleet. Public
+# visibility is intentional — qso-graph itself is public, so the release
+# process should be visible to the community.
+#
+#   release-workflow/     → Bob primary (MCP fleet release maintenance)
+#   registry-sync/        → Bob primary (MCP Registry + MCP.so sync)
+#   security/             → Patton primary (security audit + CLCA)
+#   release-engineering/  → Bob primary
+#
+# Patton's security audit is required for any change that touches:
+# - Credential handling
+# - HTTPS verification
+# - Input validation patterns
+# - PyPI publish workflows
+#
+# Agent-level review happens via inbox (action priority) before the
+# merge commit lands.
+
+* @KI7MT
+
+# Security-sensitive paths require Patton-equivalent audit before
+# KI7MT approval. Process discipline; not git-layer enforceable.
+/security/ @KI7MT
